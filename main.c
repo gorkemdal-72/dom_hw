@@ -35,9 +35,10 @@ int main(){
 
         fwrite(&s, sizeof(smartlog), 1, bin);
     }
-    
+    fclose(csv);
+    fclose(bin);
 
-
+aaaaaaaaaaaaaaaaaaaaaaa
     FILE *binFile = fopen("data.bin", "rb");
     smartlog sm;
 
