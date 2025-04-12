@@ -35,8 +35,7 @@ int main(){
 
         fwrite(&s, sizeof(smartlog), 1, bin);
     }
-    fclose(csv);
-    fclose(bin);
+    
 
 
     FILE *binFile = fopen("data.bin", "rb");
@@ -47,6 +46,8 @@ int main(){
     }
 
     fclose(binFile);
+
+
 }
 /*
 #include <stdio.h>
@@ -173,3 +174,4 @@ int main() {
     return 0;
 }
 */
+//aaaaaaaaaaaaaaaaaaaaaaaa
