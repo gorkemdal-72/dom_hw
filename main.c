@@ -38,7 +38,6 @@ int main(){
     fclose(csv);
     fclose(bin);
 
-aaaaaaaaaaaaaaaaaaaaaaa
     FILE *binFile = fopen("data.bin", "rb");
     smartlog sm;
 
@@ -47,7 +46,6 @@ aaaaaaaaaaaaaaaaaaaaaaa
     }
 
     fclose(binFile);
-
 
 }
 /*
