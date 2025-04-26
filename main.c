@@ -24,7 +24,7 @@ int main() {
     }
 
     char delimiter = ','; 
-    smartlog s;
+    smartlog sl;
     char line[200]; 
 
     // Skip the first sentence
@@ -38,55 +38,55 @@ int main() {
         // parse device_id
         token = strtok(line, &delimiter);
         if (token == NULL) continue;
-        strncpy(s.device_id, token, sizeof(s.device_id) - 1);
-        s.device_id[sizeof(s.device_id) - 1] = '\0';  
+        strncpy(sl.device_id, token, sizeof(sl.device_id) - 1);
+        sl.device_id[sizeof(sl.device_id) - 1] = '\0';  
 
         // parse temperature
         token = strtok(NULL, &delimiter);
         if (token == NULL) continue;
-        s.temperature = strtod(token, &end);
+        sl.temperature = strtod(token, &end);
 
         // parse humidity
         token = strtok(NULL, &delimiter);
         if (token == NULL) continue;
-        s.humidity = (int)strtol(token, &end, 10);
+        sl.humidity = (int)strtol(token, &end, 10);
 
         // parse status
         token = strtok(NULL, &delimiter);
         if (token == NULL) continue;
-        s.status = token[0];  
+        sl.status = token[0];  
 
         // parse location
         token = strtok(NULL, &delimiter);
         if (token == NULL) continue;
-        strncpy(s.location, token, sizeof(s.location) - 1);
-        s.location[sizeof(s.location) - 1] = '\0';  
+        strncpy(sl.location, token, sizeof(sl.location) - 1);
+        sl.location[sizeof(sl.location) - 1] = '\0';  
 
         // parse alert_level
         token = strtok(NULL, &delimiter);
         if (token == NULL) continue;
-        strncpy(s.alert_level, token, sizeof(s.alert_level) - 1);
-        s.alert_level[sizeof(s.alert_level) - 1] = '\0';  
+        strncpy(sl.alert_level, token, sizeof(sl.alert_level) - 1);
+        sl.alert_level[sizeof(sl.alert_level) - 1] = '\0';  
 
         // parse battery
         token = strtok(NULL, &delimiter);
         if (token == NULL) continue;
-        s.battery = (int)strtol(token, &end, 10);
+        sl.battery = (int)strtol(token, &end, 10);
 
         // parse firmware_ver
         token = strtok(NULL, &delimiter);
         if (token == NULL) continue;
-        strncpy(s.firmware_ver, token, sizeof(s.firmware_ver) - 1);
-        s.firmware_ver[sizeof(s.firmware_ver) - 1] = '\0';  
+        strncpy(sl.firmware_ver, token, sizeof(sl.firmware_ver) - 1);
+        sl.firmware_ver[sizeof(sl.firmware_ver) - 1] = '\0';  
 
         // parse event_code
         token = strtok(NULL, &delimiter);
         if (token == NULL) continue;
-        s.event_code = (int)strtol(token, &end, 10);
+        sl.event_code = (int)strtol(token, &end, 10);
        
 
         // Write csv to the binary file
-        fwrite(&s, sizeof(smartlog), 1, bin);
+        fwrite(&sl, sizeof(smartlog), 1, bin);
     }
     fclose(csv);
     fclose(bin);
