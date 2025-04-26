@@ -85,10 +85,9 @@ int main() {
         s.event_code = (int)strtol(token, &end, 10);
        
 
-        // Write to the binary file
+        // Write csv to the binary file
         fwrite(&s, sizeof(smartlog), 1, bin);
     }
-    printf("%s,%d,%s,%d,%s",s.alert_level,s.battery,s.device_id,s.event_code,s.firmware_ver,"\n");
     fclose(csv);
     fclose(bin);
 
